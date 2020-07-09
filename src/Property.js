@@ -63,7 +63,13 @@ query getInventory($id: ID!) {getInventory(id: $id)
 
       let newTitle
 
-      if (title === "wallsAndCeilings") {return newTitle = "Walls and ceilings"} else if (title === "signedDate") {return newTitle = "Signed date"} else if (title === "contractStartDate") {return newTitle = "Contract start date"} else if (title === "contractEndDate") {newTitle = "Contract end date"} else {newTitle = title.charAt(0).toUpperCase() + title.slice(1)}
+      if (title === "wallsAndCeilings") {return newTitle = "Walls and ceilings"} 
+      else if (title === "signedDate") {return newTitle = "Signed date"} 
+      else if (title === "contractStartDate") {return newTitle = "Contract start date"} 
+      else if (title === "contractEndDate") {newTitle = "Contract end date"} 
+      else if (title === "firstName") {return newTitle = "First name"}
+      else if (title === "lastName") {return newTitle = "Last name"}
+      else {newTitle = title.charAt(0).toUpperCase() + title.slice(1)}
     
       return newTitle
     }

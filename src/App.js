@@ -17,6 +17,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -27,7 +29,23 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-});
+})
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiButton: {
+      text: {
+        background: '#00766c;',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        height: 40,
+        width: 140,
+        boxShadow: '0 3px 5px 2px rgba(255, 255, 255, .3)',
+      },
+    },
+  },
+})
 
 const GET_INVENTORY = gql`
 {getInventories 
@@ -43,8 +61,8 @@ const GET_INVENTORY = gql`
 }`;
 
 const Home = () => {
-  const classes = useStyles();
-  const history = useHistory();
+  const classes = useStyles()
+  const history = useHistory()
   const { loading, error, data } = useQuery(GET_INVENTORY)
 
   const goToPropertyDetails = (id) => history.push(`/${id}`)
@@ -74,9 +92,10 @@ const Home = () => {
         </Typography>
       </CardContent>
       <CardActions>
+      <ThemeProvider theme={theme}>
         <Button size="small" onClick={() => goToPropertyDetails(id)}>Learn More</Button>
+      </ThemeProvider>
       </CardActions>
-      <div style={{height: "24px", background: "#00766c"}}></div>
     </Card>
 
           </div>))}
@@ -132,4 +151,4 @@ const App = () => {
 }
 
 
-export default App;
+export default App
