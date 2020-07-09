@@ -8,7 +8,7 @@ afterwards, to run the app, enter the application folder through the terminal an
 
     npm install
 
-    npm run
+    npm start
 
 to build a production version, run:
 
