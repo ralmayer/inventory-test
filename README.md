@@ -1,6 +1,6 @@
 built with create-react-app
 
-before running the app, create a .env file and inside of it create a GRAPHQL_ENDPOINT_KEY 
+before running the app, create a .env file in the root directory, and inside of the file create a GRAPHQL_ENDPOINT_KEY variable
 
 assign your API key value to said variable
 
